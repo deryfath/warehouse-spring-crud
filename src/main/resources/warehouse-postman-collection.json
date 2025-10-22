@@ -1,0 +1,189 @@
+{
+  "info": {
+    "name": "Warehouse API (Spring Boot 3 - Port 7000)",
+    "_postman_id": "3a7e80c3-efab-4c8f-9614-6a8e43e44e8b",
+    "description": "Postman collection for Shop Warehouse Management System built with Spring Boot 3 and JPA.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Items",
+      "item": [
+        {
+          "name": "Get All Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:7000/api/items",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "items"]
+            }
+          }
+        },
+        {
+          "name": "Get Item by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:7000/api/items/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "items", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Item",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"T-Shirt\",\n  \"description\": \"Basic cotton t-shirt\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:7000/api/items",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "items"]
+            }
+          }
+        },
+        {
+          "name": "Update Item",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"T-Shirt Updated\",\n  \"description\": \"Premium cotton t-shirt\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:7000/api/items/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "items", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Item",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:7000/api/items/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "items", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Variants",
+      "item": [
+        {
+          "name": "Get All Variants by Item ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:7000/api/variants/item/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "variants", "item", "1"]
+            }
+          }
+        },
+        {
+          "name": "Get Variant by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "http://localhost:7000/api/variants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "variants", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Variant",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": 1,\n  \"name\": \"T-Shirt Size M\",\n  \"price\": 120000,\n  \"stock\": 50\n}"
+            },
+            "url": {
+              "raw": "http://localhost:7000/api/variants",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "variants"]
+            }
+          }
+        },
+        {
+          "name": "Update Variant",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"itemId\": 1,\n  \"name\": \"T-Shirt Size M Updated\",\n  \"price\": 135000,\n  \"stock\": 60\n}"
+            },
+            "url": {
+              "raw": "http://localhost:7000/api/variants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "variants", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Variant",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "http://localhost:7000/api/variants/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "variants", "1"]
+            }
+          }
+        },
+        {
+          "name": "Sell Variant (Reduce Stock)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 5\n}"
+            },
+            "url": {
+              "raw": "http://localhost:7000/api/variants/1/sell",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "7000",
+              "path": ["api", "variants", "1", "sell"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
